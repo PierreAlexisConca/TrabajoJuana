@@ -1,0 +1,113 @@
+<app-admin-layout
+  pageTitle="Inventario de Productos"
+  pagePath="Inicio / Almacen / Inventario"
+  active="inventario"
+>
+  <div class="toolbar">
+    <div class="search-box">
+      🔍
+      <input type="text" placeholder="Buscar producto, codigo, categoria..." />
+    </div>
+    <button class="filter-btn">🏷️ Categoria</button>
+    <button class="filter-btn">📍 Seccion</button>
+    <button class="filter-btn">⚠️ Estado</button>
+    <button class="btn-add">+ Nuevo Producto</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active">Todos (124)</button>
+    <button class="tab">Granos (42)</button>
+    <button class="tab">Insumos (38)</button>
+    <button class="tab">Fertilizantes (22)</button>
+    <button class="tab">Herramientas (22)</button>
+  </div>
+
+  <div class="table-card">
+    <div class="table-header">
+      <div class="table-info">Mostrando 8 de 124 productos</div>
+      <button class="filter-btn sort-btn">↕ Ordenar por: Stock</button>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Codigo</th>
+            <th>Producto</th>
+            <th>Categoria</th>
+            <th>Stock Actual</th>
+            <th>Unidad</th>
+            <th>Seccion</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="code">GRN-001</td>
+            <td><div class="prod-name">Maiz Amarillo Duro</div><div class="prod-code">Zea mays · Var. PM-213</div></td>
+            <td><span class="cat-badge cat-grano">🌽 Grano</span></td>
+            <td><span class="stock-val stock-ok">4,800</span></td>
+            <td>kg</td>
+            <td>A-02</td>
+            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
+            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          </tr>
+          <tr>
+            <td class="code">GRN-002</td>
+            <td><div class="prod-name">Arroz Corriente</div><div class="prod-code">Oryza sativa · Var. IR-64</div></td>
+            <td><span class="cat-badge cat-grano">🌾 Grano</span></td>
+            <td><span class="stock-val stock-ok">2,100</span></td>
+            <td>kg</td>
+            <td>A-04</td>
+            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
+            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          </tr>
+          <tr>
+            <td class="code">FRT-001</td>
+            <td><div class="prod-name">Fertilizante NPK 20-20-20</div><div class="prod-code">Lote FRT-2024-08</div></td>
+            <td><span class="cat-badge cat-fertilizante">🧪 Fertilizante</span></td>
+            <td><span class="stock-val stock-warn">320</span></td>
+            <td>kg</td>
+            <td>B-01</td>
+            <td><span class="status-dot"><span class="dot dot-warn"></span>Por vencer</span></td>
+            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          </tr>
+          <tr>
+            <td class="code">INS-003</td>
+            <td><div class="prod-name">Pesticida Foliar Concentrado</div><div class="prod-code">Clorpirifos 48% EC</div></td>
+            <td><span class="cat-badge cat-insumo">🛢 Insumo</span></td>
+            <td><span class="stock-val stock-ok">180</span></td>
+            <td>L</td>
+            <td>B-03</td>
+            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
+            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          </tr>
+          <tr>
+            <td class="code">GRN-007</td>
+            <td><div class="prod-name">Semilla de Papa Canchan</div><div class="prod-code">Solanum tuberosum · Cert. A</div></td>
+            <td><span class="cat-badge cat-grano">🥔 Grano</span></td>
+            <td><span class="stock-val stock-danger">45</span></td>
+            <td>kg</td>
+            <td>C-01</td>
+            <td><span class="status-dot"><span class="dot dot-danger"></span>Critico</span></td>
+            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <div class="pag-info">Pagina 1 de 16</div>
+      <div class="pag-btns">
+        <button class="pag-btn">← Ant.</button>
+        <button class="pag-btn active">1</button>
+        <button class="pag-btn">2</button>
+        <button class="pag-btn">3</button>
+        <button class="pag-btn">...</button>
+        <button class="pag-btn">16</button>
+        <button class="pag-btn">Sig. →</button>
+      </div>
+    </div>
+  </div>
+</app-admin-layout>

@@ -1,0 +1,278 @@
+:host {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1.5px solid #e0dbd0;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  color: var(--marron);
+  background: transparent;
+  flex: 1;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #e0dbd0;
+  background: white;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: var(--verde-medio);
+  color: var(--verde-medio);
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro));
+  color: white;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(45, 80, 22, 0.35);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #999;
+  border: none;
+  background: transparent;
+}
+
+.tab.active {
+  background: var(--verde-oscuro);
+  color: white;
+  font-weight: 500;
+}
+
+.table-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e8e2d8;
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f0ece4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.table-info {
+  font-size: 12.5px;
+  color: #aaa;
+}
+
+.sort-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+}
+
+thead th {
+  font-size: 11px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #bbb;
+  padding: 12px 20px;
+  text-align: left;
+  background: #faf8f4;
+  border-bottom: 1px solid #f0ece4;
+}
+
+tbody td {
+  padding: 13px 20px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #f7f4ef;
+  vertical-align: middle;
+}
+
+.prod-name {
+  font-weight: 500;
+  color: var(--marron);
+}
+
+.prod-code,
+.code {
+  font-family: monospace;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.cat-grano {
+  background: rgba(201, 168, 76, 0.15);
+  color: #8b6914;
+}
+
+.cat-insumo {
+  background: rgba(74, 124, 47, 0.12);
+  color: var(--verde-medio);
+}
+
+.cat-fertilizante {
+  background: rgba(113, 166, 80, 0.15);
+  color: #3a6b1a;
+}
+
+.stock-val {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.stock-ok {
+  color: var(--verde-medio);
+}
+
+.stock-warn {
+  color: #d97706;
+}
+
+.stock-danger {
+  color: #dc2626;
+}
+
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-ok {
+  background: var(--verde-claro);
+}
+
+.dot-warn {
+  background: #ecc94b;
+}
+
+.dot-danger {
+  background: #e53e3e;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.act-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid #e8e2d8;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-top: 1px solid #f0ece4;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pag-info {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.pag-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.pag-btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: 1px solid #e8e2d8;
+  background: white;
+  font-size: 12.5px;
+  cursor: pointer;
+  color: #666;
+}
+
+.pag-btn.active {
+  background: var(--verde-oscuro);
+  color: white;
+  border-color: var(--verde-oscuro);
+}

@@ -1,0 +1,61 @@
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-box">🌾</div>
+    <div class="logo-text">
+      Agricola del Valle
+      <div class="logo-sub-s">Almacen</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-section">Principal</div>
+
+    <a class="nav-item" [class.active]="active === 'dashboard'" routerLink="/dashboard">
+      <span class="icon">📊</span> Dashboard
+    </a>
+
+    <a class="nav-item" [class.active]="active === 'inventario'" routerLink="/inventario">
+      <span class="icon">📦</span> Inventario <span class="nav-badge">3</span>
+    </a>
+
+    <a class="nav-item" [class.active]="active === 'movimientos'" routerLink="/movimientos">
+      <span class="icon">🔄</span> Movimientos
+    </a>
+
+    <a class="nav-item" [class.active]="active === 'reportes'" routerLink="/reportes">
+      <span class="icon">📋</span> Reportes
+    </a>
+
+    <div class="nav-section">Configuracion</div>
+    <a class="nav-item" href="javascript:void(0)"><span class="icon">👥</span> Usuarios</a>
+    <a class="nav-item" href="javascript:void(0)"><span class="icon">⚙️</span> Configuracion</a>
+    <a class="nav-item" routerLink="/login"><span class="icon">🚪</span> Cerrar Sesion</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="avatar">JM</div>
+      <div class="user-info">
+        <div class="user-name">Juan Mendoza</div>
+        <div class="user-role">Administrador</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <div class="topbar">
+    <div>
+      <div class="page-title">{{ pageTitle }}</div>
+      <div class="page-path">{{ pagePath }}</div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-date">📅 Miercoles, 22 Abr 2026</div>
+      <div class="notif-btn">🔔<div class="notif-dot"></div></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

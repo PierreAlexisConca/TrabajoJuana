@@ -1,0 +1,139 @@
+<app-admin-layout
+  pageTitle="Registro de Movimientos"
+  pagePath="Inicio / Almacen / Movimientos"
+  active="movimientos"
+>
+  <div class="content-grid">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-card-title">Nuevo Movimiento</div>
+        <div class="form-card-sub">Registra entradas y salidas del almacen</div>
+      </div>
+
+      <div class="toggle-group">
+        <button class="toggle-btn entrada active">⬇️ Entrada</button>
+        <button class="toggle-btn salida">⬆️ Salida</button>
+      </div>
+
+      <div class="form-body">
+        <div class="field">
+          <label>Producto</label>
+          <select>
+            <option value="" disabled selected>Selecciona un producto...</option>
+            <option>Maiz Amarillo Duro · GRN-001</option>
+            <option>Arroz Corriente · GRN-002</option>
+            <option>Fertilizante NPK 20-20-20 · FRT-001</option>
+            <option>Semilla de Papa Canchan · GRN-007</option>
+          </select>
+          <div class="stock-preview">
+            <span>Stock actual:</span>
+            <strong>4,800 kg disponibles</strong>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Cantidad</label>
+            <input type="number" placeholder="0" min="1" />
+          </div>
+          <div class="field">
+            <label>Unidad</label>
+            <select>
+              <option>kg</option>
+              <option>L</option>
+              <option>unid.</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Fecha</label>
+            <input type="date" value="2026-04-22" />
+          </div>
+          <div class="field">
+            <label>Hora</label>
+            <input type="time" value="09:30" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Proveedor / Destino</label>
+          <input type="text" placeholder="ej. Proveedor Sanchez, Parcela N°3..." />
+        </div>
+
+        <div class="field">
+          <label>Responsable</label>
+          <select>
+            <option>Juan Mendoza – Administrador</option>
+            <option>Maria Torres – Almacenera</option>
+            <option>Carlos Quispe – Operario</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>N° Documento (Guia / Factura)</label>
+          <input type="text" placeholder="ej. G-2026-00123" />
+        </div>
+
+        <div class="field">
+          <label>Observaciones</label>
+          <textarea placeholder="Notas adicionales sobre este movimiento..."></textarea>
+        </div>
+
+        <button class="btn-submit">✅ Registrar Entrada</button>
+      </div>
+    </div>
+
+    <div class="hist-card">
+      <div class="hist-header">
+        <div class="hist-title">Historial de Movimientos</div>
+        <div class="hist-today">Hoy: 8 registros</div>
+      </div>
+
+      <div class="filter-row">
+        <button class="f-chip active">Todos</button>
+        <button class="f-chip">Entradas</button>
+        <button class="f-chip">Salidas</button>
+      </div>
+
+      <div class="mov-list">
+        <div class="mov-item">
+          <div class="mov-type-icon entrada">📥</div>
+          <div class="mov-info">
+            <div class="mov-prod">Maiz Amarillo Duro</div>
+            <div class="mov-meta">GRN-001 · Proveedor Agricola Huanca · G-2026-00288</div>
+          </div>
+          <div class="mov-amount">
+            <div class="mov-qty entrada">+ 2,400 kg</div>
+            <div class="mov-date">Hoy, 08:15</div>
+          </div>
+        </div>
+
+        <div class="mov-item">
+          <div class="mov-type-icon salida">📤</div>
+          <div class="mov-info">
+            <div class="mov-prod">Fertilizante NPK 20-20-20</div>
+            <div class="mov-meta">FRT-001 · Parcela N°5 – Carlos Quispe</div>
+          </div>
+          <div class="mov-amount">
+            <div class="mov-qty salida">– 150 kg</div>
+            <div class="mov-date">Hoy, 07:50</div>
+          </div>
+        </div>
+
+        <div class="mov-item">
+          <div class="mov-type-icon entrada">📥</div>
+          <div class="mov-info">
+            <div class="mov-prod">Semilla de Arroz IR-64</div>
+            <div class="mov-meta">GRN-002 · Proveedor Semillas del Sur</div>
+          </div>
+          <div class="mov-amount">
+            <div class="mov-qty entrada">+ 800 kg</div>
+            <div class="mov-date">Ayer, 15:30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-admin-layout>
