@@ -6,25 +6,36 @@
   <div class="toolbar">
     <div class="search-box">
       🔍
-      <input type="text" placeholder="Buscar producto, codigo, categoria..." />
+      <input
+        type="text"
+        placeholder="Buscar producto, codigo, categoria..."
+        [(ngModel)]="searchTerm"
+      />
     </div>
-    <button class="filter-btn">🏷️ Categoria</button>
-    <button class="filter-btn">📍 Seccion</button>
-    <button class="filter-btn">⚠️ Estado</button>
-    <button class="btn-add">+ Nuevo Producto</button>
+    <select class="filter-btn" [(ngModel)]="selectedCategory">
+      <option *ngFor="let category of categories" [value]="category">🏷️ {{ category }}</option>
+    </select>
+    <select class="filter-btn" [(ngModel)]="selectedSection">
+      <option *ngFor="let section of sections" [value]="section">📍 {{ section }}</option>
+    </select>
+    <select class="filter-btn" [(ngModel)]="selectedStatus">
+      <option *ngFor="let status of statuses" [value]="status">⚠️ {{ status }}</option>
+    </select>
+    <button class="btn-add" (click)="openNewProduct()">+ Nuevo Producto</button>
   </div>
 
   <div class="tabs">
-    <button class="tab active">Todos (124)</button>
-    <button class="tab">Granos (42)</button>
-    <button class="tab">Insumos (38)</button>
-    <button class="tab">Fertilizantes (22)</button>
-    <button class="tab">Herramientas (22)</button>
+    <button class="tab" [class.active]="activeTab === 'Todos'" (click)="setTab('Todos')">Todos ({{ categoryCounts.Todos }})</button>
+    <button class="tab" [class.active]="activeTab === 'Granos'" (click)="setTab('Granos')">Granos ({{ categoryCounts.Granos }})</button>
+    <button class="tab" [class.active]="activeTab === 'Insumos'" (click)="setTab('Insumos')">Insumos ({{ categoryCounts.Insumos }})</button>
+    <button class="tab" [class.active]="activeTab === 'Fertilizantes'" (click)="setTab('Fertilizantes')">Fertilizantes ({{ categoryCounts.Fertilizantes }})</button>
+    <button class="tab" [class.active]="activeTab === 'Herramientas'" (click)="setTab('Herramientas')">Herramientas ({{ categoryCounts.Herramientas }})</button>
+    <button class="tab clear-tab" type="button" (click)="clearFilters()">Limpiar filtros</button>
   </div>
 
   <div class="table-card">
     <div class="table-header">
-      <div class="table-info">Mostrando 8 de 124 productos</div>
+      <div class="table-info">Mostrando {{ filteredProducts.length }} de {{ products.length }} productos</div>
       <button class="filter-btn sort-btn">↕ Ordenar por: Stock</button>
     </div>
 
@@ -43,71 +54,82 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="code">GRN-001</td>
-            <td><div class="prod-name">Maiz Amarillo Duro</div><div class="prod-code">Zea mays · Var. PM-213</div></td>
-            <td><span class="cat-badge cat-grano">🌽 Grano</span></td>
-            <td><span class="stock-val stock-ok">4,800</span></td>
-            <td>kg</td>
-            <td>A-02</td>
-            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
-            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
-          </tr>
-          <tr>
-            <td class="code">GRN-002</td>
-            <td><div class="prod-name">Arroz Corriente</div><div class="prod-code">Oryza sativa · Var. IR-64</div></td>
-            <td><span class="cat-badge cat-grano">🌾 Grano</span></td>
-            <td><span class="stock-val stock-ok">2,100</span></td>
-            <td>kg</td>
-            <td>A-04</td>
-            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
-            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
-          </tr>
-          <tr>
-            <td class="code">FRT-001</td>
-            <td><div class="prod-name">Fertilizante NPK 20-20-20</div><div class="prod-code">Lote FRT-2024-08</div></td>
-            <td><span class="cat-badge cat-fertilizante">🧪 Fertilizante</span></td>
-            <td><span class="stock-val stock-warn">320</span></td>
-            <td>kg</td>
-            <td>B-01</td>
-            <td><span class="status-dot"><span class="dot dot-warn"></span>Por vencer</span></td>
-            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
-          </tr>
-          <tr>
-            <td class="code">INS-003</td>
-            <td><div class="prod-name">Pesticida Foliar Concentrado</div><div class="prod-code">Clorpirifos 48% EC</div></td>
-            <td><span class="cat-badge cat-insumo">🛢 Insumo</span></td>
-            <td><span class="stock-val stock-ok">180</span></td>
-            <td>L</td>
-            <td>B-03</td>
-            <td><span class="status-dot"><span class="dot dot-ok"></span>Normal</span></td>
-            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
-          </tr>
-          <tr>
-            <td class="code">GRN-007</td>
-            <td><div class="prod-name">Semilla de Papa Canchan</div><div class="prod-code">Solanum tuberosum · Cert. A</div></td>
-            <td><span class="cat-badge cat-grano">🥔 Grano</span></td>
-            <td><span class="stock-val stock-danger">45</span></td>
-            <td>kg</td>
-            <td>C-01</td>
-            <td><span class="status-dot"><span class="dot dot-danger"></span>Critico</span></td>
-            <td><div class="actions"><button class="act-btn">👁</button><button class="act-btn">✏️</button><button class="act-btn">📜</button></div></td>
+          <tr *ngFor="let product of filteredProducts; trackBy: trackByProductId">
+            <td class="code">{{ product.codigo }}</td>
+            <td><div class="prod-name">{{ product.nombre }}</div><div class="prod-code">{{ product.detalle }}</div></td>
+            <td><span class="cat-badge" [ngClass]="{
+              'cat-grano': product.categoria === 'Granos',
+              'cat-insumo': product.categoria === 'Insumos',
+              'cat-fertilizante': product.categoria === 'Fertilizantes'
+            }">{{ product.categoria === 'Granos' ? '🌽' : product.categoria === 'Insumos' ? '🛢' : product.categoria === 'Fertilizantes' ? '🧪' : '🔧' }} {{ product.categoria }}</span></td>
+            <td><span class="stock-val" [ngClass]="getStockClass(product)">{{ product.stock }}</span></td>
+            <td>{{ product.unidad }}</td>
+            <td>{{ product.seccion }}</td>
+            <td><span class="status-dot"><span class="dot" [ngClass]="getStatusDotClass(product)"></span>{{ getStatus(product) }}</span></td>
+            <td><div class="actions"><button class="act-btn" type="button">👁</button><button class="act-btn" type="button" (click)="openEditProduct(product)">✏️</button><button class="act-btn" type="button">📜</button></div></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="pagination">
-      <div class="pag-info">Pagina 1 de 16</div>
+      <div class="pag-info">Pagina 1 de 1</div>
       <div class="pag-btns">
         <button class="pag-btn">← Ant.</button>
         <button class="pag-btn active">1</button>
-        <button class="pag-btn">2</button>
-        <button class="pag-btn">3</button>
-        <button class="pag-btn">...</button>
-        <button class="pag-btn">16</button>
         <button class="pag-btn">Sig. →</button>
       </div>
     </div>
   </div>
+
+  <div class="modal-backdrop" *ngIf="showForm" (click)="closeForm()"></div>
+  <section class="modal-card" *ngIf="showForm">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">{{ editingProductId === null ? 'Nuevo Producto' : 'Editar Producto' }}</div>
+        <div class="modal-subtitle">Los cambios se aplican inmediatamente en la tabla y filtros.</div>
+      </div>
+      <button class="close-btn" type="button" (click)="closeForm()">✕</button>
+    </div>
+
+    <div class="modal-grid">
+      <label class="modal-field">
+        <span>Codigo</span>
+        <input [(ngModel)]="formModel.codigo" />
+      </label>
+      <label class="modal-field">
+        <span>Nombre</span>
+        <input [(ngModel)]="formModel.nombre" />
+      </label>
+      <label class="modal-field full">
+        <span>Detalle</span>
+        <input [(ngModel)]="formModel.detalle" />
+      </label>
+      <label class="modal-field">
+        <span>Categoria</span>
+        <select [(ngModel)]="formModel.categoria">
+          <option *ngFor="let category of categories.slice(1)" [value]="category">{{ category }}</option>
+        </select>
+      </label>
+      <label class="modal-field">
+        <span>Stock</span>
+        <input type="number" [(ngModel)]="formModel.stock" />
+      </label>
+      <label class="modal-field">
+        <span>Unidad</span>
+        <input [(ngModel)]="formModel.unidad" />
+      </label>
+      <label class="modal-field">
+        <span>Seccion</span>
+        <select [(ngModel)]="formModel.seccion">
+          <option *ngFor="let section of sections.slice(1)" [value]="section">{{ section }}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="modal-actions">
+      <button class="secondary-btn" type="button" (click)="closeForm()">Cancelar</button>
+      <button class="primary-btn" type="button" (click)="saveProduct()">Guardar cambios</button>
+    </div>
+  </section>
 </app-admin-layout>
